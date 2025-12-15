@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="about_me.css">
+	<title>About Me</title>
+
+	<!-- AOS Animation CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+	<!-- Typed.js -->
+	<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+	<!-- Vanilla Tilt.js -->
+	<script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.2/dist/vanilla-tilt.min.js"></script>
+</head>
+<body>
+<h1><b>Wong's Personal Website</b></h1>
+
+<nav>
+	<a href="index.html">Home</a>
+	<a href="about_me.html">About Me</a>
+    <a href="education.html">Education</a>
+	<a href="experience.html">Experience</a>
+	<a href="family.html">Family</a>
+	<a href="favourite.html">Favourite</a>
+	<a href="friends.html">Friends</a>
+	<a href="gallery.html">Gallery</a>
+</nav>
+
+<!--- Typed.js Intro --->
+<div class="typed-intro" data-aos="fade-down">
+    <h2 id="typed"></h2>
+</div>
+
+<!--- Website content here--->
+<div class="content" data-aos="fade-up">
+
+    <h2>About me</h2>
+    <p><em>I’m someone who loves to explore, learn and grow every day. Every experience shapes who I am, helping me discover my passions, face challenges with courage and embrace the journey of becoming the best version of myself. I believe in finding joy in little moments and always pushing myself to step out of my comfort zone to learn, connect and create meaningful experiences along the way.</em></p>
+
+    <div class="about-container">
+
+        <div class="about-image" data-aos="zoom-in">
+            <img src="aboutme_profile.jpg" alt="My Photo">
+        </div>
+
+        <div class="about-biodata" data-aos="fade-left">
+            <h3>Biodata</h3>
+            <ul>
+                <li><b>Full Name:</b> Mohammad Izwan Hakimi Bin Mohammad Faizol</li>
+                <li><b>Age:</b> 14 June 2005 (20)</li>
+                <li><b>Gender:</b> Male</li>
+                <li><b>From:</b> Selangor, Malaysia</li>
+                <li><b>Education:</b> Diploma in Information Management (UiTM)</li>
+                <li><b>Hobbies:</b> Video Game, Music and Web Design</li>
+                <li><b>Skills:</b> Communication, Programming and Design</li>
+            </ul>
+
+            <!-- Skill bars -->
+            <h4>My Skills</h4>
+            <div class="skill-bar">
+                <span>Communication</span>
+                <div class="skill-fill" data-skill="50%"></div>
+            </div>
+            <div class="skill-bar">
+                <span>Programming</span>
+                <div class="skill-fill" data-skill="100%"></div>
+            </div>
+            <div class="skill-bar">
+                <span>Design</span>
+                <div class="skill-fill" data-skill="75%"></div>
+            </div>
+        </div>
+
+    </div>
+
+	<!-- Mini Timeline -->
+	<div class="timeline-section" data-aos="fade-up">
+    	<h3>My Life Timeline</h3>
+    	<div class="timeline">
+        	<div class="timeline-item">
+            	<span class="year">2005</span>
+           		Born in Hospital Selayang, Selangor
+        	</div>
+        	<div class="timeline-item">
+            	<span class="year">2012</span>
+            	Started primary school in SK Puncak Alam 2
+        	</div>
+        	<div class="timeline-item">
+            	<span class="year">2018</span>
+            	Started secondary school in SAM Paya Jaras
+        	</div>
+        	<div class="timeline-item">
+            	<span class="year">2023</span>
+            	Enrolled in UiTM Kelantan Branch (Diploma in Information Management)
+        	</div>
+        	<div class="timeline-item">
+            	<span class="year">Future</span>
+            	Build my own business & grow in digital website
+        	</div>
+    	</div>
+	</div>
+
+	<!-- Fun Facts -->
+	<div class="fun-facts-section" data-aos="fade-up">
+    	<h3>Fun Facts About Me</h3>
+    	<ul class="fun-facts-list">
+        	<li>I also love playing badminton because my family is always active in the sport.</li>
+        	<li>I enjoy playing bowling with my family whenever we have free time.</li>
+        	<li>I developed an interest in coding starting from my third semester.</li>
+        	<li>Playing video games is my favourite way to relieve stress.</li>
+        	<li>I like going for evening jogs to enjoy the fresh air.</li>
+    	</ul>
+	</div>
+
+	<p><b>"More than anything, I aim to grow, explore and make a meaningful impact through who I am."</b></p>
+
+</div>
+
+<footer class="footer">
+	<p>&copy; 2025 This Website is for personal education purposes only | Mohammad Izwan Hakimi Bin Mohammad Faizol</p>
+</footer>
+
+<!-- JS Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+	// Initialize AOS
+	AOS.init({
+		duration: 1000,
+		once: true
+	});
+
+	// Skill bar animation
+	window.addEventListener('scroll', function() {
+		const skillFills = document.querySelectorAll('.skill-fill');
+		skillFills.forEach(fill => {
+			const rect = fill.getBoundingClientRect();
+			if(rect.top < window.innerHeight) {
+				fill.style.width = fill.getAttribute('data-skill');
+			}
+		});
+	});
+
+	// Vanilla Tilt init (optional, if you have cards to tilt)
+	VanillaTilt.init(document.querySelectorAll(".fun-facts-list li"), {
+		max: 10,
+		speed: 400,
+		scale: 1.02
+	});
+</script>
+
+</body>
+</html>

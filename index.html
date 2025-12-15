@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="style.css">
+	<title>Home Page</title>
+
+	<!-- ICONS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<!-- LOGO + WEBSITE NAME -->
+<h1><b>Wong's Personal Website</b></h1>
+
+<!-- NAVIGATION -->
+<nav>
+	<a href="index.html">Home</a>
+	<a href="about_me.html">About Me</a>
+    <a href="education.html">Education</a>
+	<a href="experience.html">Experience</a>
+	<a href="family.html">Family</a>
+	<a href="favourite.html">Favourite</a>
+	<a href="friends.html">Friends</a>
+	<a href="gallery.html">Gallery</a>
+</nav>
+
+<!-- CONTENT -->
+<div class="content">
+	<div class="profile-container">
+		<img src="index_profile.jpg" alt="Profile Picture" class="profile-img" onclick="showProfile()">
+		<h3 id="typingText"></h3>
+	</div>
+
+	<h2>This is My Homepage</h2>
+	<p><em>Hi! You’ve just entered my personal space on the web where I share my stories, my interests, my weird hobbies and yes… even my favorite foods and drinks!</em></p>
+
+	<p><b>"Write your own story. Stay kind, Stay brave and keep going. Heroes don’t quit!!"</b></p>
+
+	<!-- SOCIAL MEDIA ICONS INSIDE CONTENT -->
+	<div class="social-icons inside">
+		<a href="#" onclick="openSocial('https://www.instagram.com/wongahjang.___?igsh=MWg4NGM2ajBlcDl6dw==')">
+			<i class="fa-brands fa-instagram"></i>
+		</a>
+		<a href="#" onclick="openSocial('https://www.tiktok.com/@wongahjang?_r=1&_t=ZS-91BtLuNbiHy')">
+			<i class="fa-brands fa-tiktok"></i>
+		</a>
+		<a href="#" onclick="openSocial('https://wa.me/60193909490')">
+			<i class="fa-brands fa-whatsapp"></i>
+		</a>
+	</div>
+</div>
+
+<!-- IMAGE POPUP -->
+<div id="imgPopup" style="display:none;">
+	<img id="popupImg">
+</div>
+
+<!-- SCROLL TO TOP BUTTON -->
+<button id="topBtn">⬆ Top</button>
+
+<!-- FOOTER -->
+<footer class="footer">
+	<p>&copy; 2025 This Website is for personal education purposes only | Mohammad Izwan Hakimi Bin Mohammad Faizol</p>
+</footer>
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+	// 1️⃣ Welcome Message
+	window.onload = function () {
+		alert("Welcome to Wong's Personal Website! 😊");
+		typingEffect();
+	};
+
+	// 2️⃣ Klik gambar profile (alert + popup)
+	function showProfile() {
+		alert("Hi! I'm Wong 👋 Thanks for visiting my personal website!");
+		popup.style.display = "flex";
+		popupImg.src = profileImg.src;
+	}
+
+	// 3️⃣ Hover effect gambar
+	const profileImg = document.querySelector(".profile-img");
+
+	profileImg.addEventListener("mouseover", function () {
+		profileImg.style.transform = "scale(1.1)";
+		profileImg.style.transition = "0.3s";
+	});
+
+	profileImg.addEventListener("mouseout", function () {
+		profileImg.style.transform = "scale(1)";
+	});
+
+	// 4️⃣ Detect scroll
+	window.addEventListener("scroll", function () {
+		console.log("User is scrolling the website");
+	});
+
+	// 6️⃣ Scroll To Top
+	const topBtn = document.getElementById("topBtn");
+
+	window.addEventListener("scroll", function () {
+		if (window.scrollY > 200) {
+			topBtn.style.display = "block";
+		} else {
+			topBtn.style.display = "none";
+		}
+	});
+
+	topBtn.addEventListener("click", function () {
+		window.scrollTo({ top: 0, behavior: "smooth" });
+	});
+
+	// 7️⃣ Typing Effect
+	const text = "Hello, I'm Wong!";
+	let index = 0;
+
+	function typingEffect() {
+		if (index < text.length) {
+			document.getElementById("typingText").innerHTML += text.charAt(index);
+			index++;
+			setTimeout(typingEffect, 100);
+		}
+	}
+
+	// 8️⃣ Image Popup Close
+	const popup = document.getElementById("imgPopup");
+	const popupImg = document.getElementById("popupImg");
+
+	popup.addEventListener("click", function () {
+		popup.style.display = "none";
+	});
+
+	// 9️⃣ Confirm sebelum buka social media
+	function openSocial(url) {
+		if (confirm("Do you want to open this social media?")) {
+			window.open(url, "_blank");
+		}
+	}
+</script>
+
+</body>
+</html>
